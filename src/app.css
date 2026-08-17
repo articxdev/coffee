@@ -1,0 +1,134 @@
+/* Modern Vibrant & Interactive Kiosk Design System (7"-10" Vertical Screen) */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  /* Vibrant Palette */
+  --bg-app: #f8fafc; /* Very light cool grey/white */
+  --bg-surface: #ffffff;
+  
+  --brand-primary: #b45309; /* Premium Caramel/Bronze */
+  --brand-primary-light: #fef3c7; /* Soft amber cream */
+  --brand-primary-dark: #78350f; /* Deep roasted bronze */
+  
+  --brand-secondary: #d97706; /* Golden amber */
+  
+  --brand-accent: #0f172a; /* Deep slate for contrast */
+
+  --border-light: #e2e8f0;
+  --border-focus: var(--brand-primary);
+
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-inverse: #ffffff;
+
+  --font-main: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Playful, softer radiuses */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+
+  /* Colorful, soft drop shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px -4px rgba(180, 83, 9, 0.15); /* bronze tinted shadow */
+  --shadow-lg: 0 16px 40px -8px rgba(180, 83, 9, 0.25);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Portrait Kiosk Shell */
+.kiosk-viewport {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-app);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bright Interactive Touch Button */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 22px 32px;
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.2s var(--ease-spring);
+  width: 100%;
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-md);
+  background: var(--brand-primary-dark);
+}
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-full);
+  padding: 16px 24px;
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+}
+
+.btn-secondary:active {
+  transform: scale(0.95);
+  background: var(--border-light);
+}
+
+/* Fluid Bouncy Transitions */
+@keyframes slideUpBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-enter {
+  animation: slideUpBounce 0.4s var(--ease-spring) forwards;
+}
